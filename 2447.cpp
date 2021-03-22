@@ -1,42 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-char s[3001][3001];
-int a = 1, b = 1, n, m;
+int x = 1;
+int n;
 
-void printStar(int x){
-	if(x == 3){
-		for(int i = a; i < a+3; i++){
-			for(int j = b; j < b+3; j++){
-				if(i % 3 == 2 && j % 3 == 2) s[i][j] = ' ';
-				else s[i][j] = '*';
-			}
-		}
+void makeStar(int n){
+	if(n == 0){
+		cout << "*";
+		return;
 	}else{
-		for(int i = 1; i <= 3; i++){
-			for(int j = 1; j <= 3; j++){
-				if(i == 2 && j == 2){
-					for(int i = a; i < a+x/3; i++){
-						for(int j = b; j < b+x/3; j++){
-							s[i][j] = ' ';
-						}
-					}
-				}else printStar(x / 3);
-				b += x/3;
+		for(int i = 1; i <= x; i++){
+			for(int j = 1; j <= x; j++){
+				if(i >= x + 1 && i <= x/3 && j >= x + 1 && j <= x/3) {
+					cout << " ";
+				}
+				else makeStar(n-1);
 			}
-			b -= x;
-			a += x/3;
+			cout << "\n";
 		}
-		a -= x;
 	}
 }
 
-int main() {
+int main(){
 	ios_base::sync_with_stdio(false);
 	cin >> n;
-	printStar(n);
-	for(int i = 1; i <= n; i++){
-		for(int j = 1; j <= n; j++) cout << s[i][j];
-		cout << "\n";
-	}
+	for(int i = 1; i <= n; i++) x *= 3;
+	makeStar(n);
 }

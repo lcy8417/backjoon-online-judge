@@ -1,12 +1,14 @@
-#include <bits/stdc++.h>
-using namespace std;
-
+#define _USE_MATH_DEFINES
+#include <iostream>
+#include <cmath>
+ 
 int main() {
-	ios_base::sync_with_stdio(false);
-	cout.precision(10);
-	const double PI = 3.14159265359;
-	int n;
-	cin >> n;
-	
-	cout << n * n * PI << "\n" << (double)n * (double)n * 2 ;
+    double R, S1, S2;
+    scanf("%lf", &R);
+    S1 = M_PI * R * R;
+    S2 = R * R * 2;
+ 
+    printf("%.6f\n", S1);
+    printf("%.6f\n", S2);
+    return 0;
 }
